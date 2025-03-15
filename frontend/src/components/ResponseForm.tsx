@@ -17,7 +17,7 @@ const ResponseForm: React.FC = () => {
     const payload = { response: answer.toLowerCase(), message };
 
     try {
-      const res = await axios.post("http://localhost:5000/response", payload);
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/response`, payload);
       setResponse(answer);
       setServerMessage(res.data.message || "Response submitted successfully!");
     } catch (error) {
